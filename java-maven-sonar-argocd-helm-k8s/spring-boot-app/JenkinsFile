@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'abhishekf5/maven-abhishek-docker-agent:v1'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // Mount Docker socket to access the host's Docker daemon
+      args '--user root -v /var/run/docker.sock:/var/run/docker.sock -v C:/ProgramData/Jenkins/.jenkins/workspace:/workspace'
     }
   }
   stages {
@@ -10,7 +10,7 @@ pipeline {
       steps {
         bat 'echo passed'
         // Uncomment and update as needed
-        // git branch: 'main', url: 'https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero.git'
+        // git branch: 'main', url: 'https://github.com/LokeshReddy180900/Jenkins-Zero-To-Hero.git'
       }
     }
     stage('Build and Test') {
